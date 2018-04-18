@@ -171,8 +171,10 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 			<Item Name="Simulated Starter Kit 2.0 Roaming ID List.txt" Type="Document" URL="../Simulated Starter Kit 2.0 Roaming ID List.txt"/>
 		</Item>
 		<Item Name="HostControl_Main.vi" Type="VI" URL="../HostControl_Main.vi"/>
-		<Item Name="globalStop.vi" Type="VI" URL="../Support VIs/globalStop.vi"/>
 		<Item Name="bodyGlobal.vi" Type="VI" URL="../Support VIs/bodyGlobal.vi"/>
+		<Item Name="speeds.ctl" Type="VI" URL="../Support VIs/speeds.ctl"/>
+		<Item Name="messageTypes.ctl" Type="VI" URL="../Support VIs/messageTypes.ctl"/>
+		<Item Name="operationModes.ctl" Type="VI" URL="../Support VIs/operationModes.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="NI_Robotics_Starter Kit Host_Sim_2.0.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/robotics/Starter Kit/2.0/Sim Host Interface/NI_Robotics_Starter Kit Host_Sim_2.0.lvclass"/>
@@ -319,6 +321,12 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 				<Item Name="Initialize Joystick.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Initialize Joystick.vi"/>
 				<Item Name="Query Input Devices.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Query Input Devices.vi"/>
 				<Item Name="Open.vi" Type="VI" URL="/&lt;vilib&gt;/MakerHub/PS4-Controller/Public/Open.vi"/>
+				<Item Name="DpadEnum.ctl" Type="VI" URL="/&lt;vilib&gt;/MakerHub/PS4-Controller/Private/Type Defs/DpadEnum.ctl"/>
+				<Item Name="closeJoystick.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeJoystick.vi"/>
+				<Item Name="closeMouse.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeMouse.vi"/>
+				<Item Name="closeKeyboard.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeKeyboard.vi"/>
+				<Item Name="Close Input Device.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Close Input Device.vi"/>
+				<Item Name="NI_Vision_Development_Module.lvlib" Type="Library" URL="/&lt;vilib&gt;/vision/NI_Vision_Development_Module.lvlib"/>
 			</Item>
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="Parallax PING))).lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/Parallax PING)))/HAIOL/Parallax PING))).lvclass"/>
@@ -353,6 +361,7 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="lvinput.dll" Type="Document" URL="/&lt;resource&gt;/lvinput.dll"/>
+			<Item Name="PS4ControlReal.vi" Type="VI" URL="../Support VIs/PS4ControlReal.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
@@ -372,6 +381,7 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 		<Property Name="target.FPProtocolGlobals_ControlTimeLimit" Type="Int">300</Property>
 		<Property Name="target.getDefault-&gt;WebServer.Port" Type="Int">80</Property>
 		<Property Name="target.getDefault-&gt;WebServer.Timeout" Type="Int">60</Property>
+		<Property Name="target.IOScan.Enabled" Type="Bool">true</Property>
 		<Property Name="target.IOScan.Faults" Type="Str"></Property>
 		<Property Name="target.IOScan.NetVarPeriod" Type="UInt">100</Property>
 		<Property Name="target.IOScan.NetWatchdogEnabled" Type="Bool">false</Property>
@@ -1122,9 +1132,7 @@ DirectoryIndex index.htm
 				<Item Name="dt out (s)" Type="Variable"/>
 			</Item>
 		</Item>
-		<Item Name="setpointsGlobal.vi" Type="VI" URL="../Support VIs/setpointsGlobal.vi"/>
 		<Item Name="robotStop.vi" Type="VI" URL="../Support VIs/robotStop.vi"/>
-		<Item Name="gainsGlobalBot.vi" Type="VI" URL="../Support VIs/gainsGlobalBot.vi"/>
 		<Item Name="logicBox.vi" Type="VI" URL="../Support VIs/logicBox.vi"/>
 		<Item Name="DifferentialDriveController.vi" Type="VI" URL="../Support VIs/DifferentialDriveController.vi"/>
 		<Item Name="Robot_Main-backup.vi" Type="VI" URL="../Robot_Main-backup.vi">
@@ -1191,6 +1199,34 @@ DirectoryIndex index.htm
 				<Item Name="NI_Robotics_Starter Kit Servo Motor_2.0.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/robotics/Starter Kit/Servo Motor 2.0/NI_Robotics_Starter Kit Servo Motor_2.0.lvclass"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 				<Item Name="Trim Whitespace.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace.vi"/>
+				<Item Name="Search and Replace Pattern.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Search and Replace Pattern.vi"/>
+				<Item Name="Find Tag.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find Tag.vi"/>
+				<Item Name="Format Message String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Format Message String.vi"/>
+				<Item Name="Error Code Database.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Code Database.vi"/>
+				<Item Name="GetRTHostConnectedProp.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/GetRTHostConnectedProp.vi"/>
+				<Item Name="TagReturnType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/TagReturnType.ctl"/>
+				<Item Name="Check Special Tags.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Check Special Tags.vi"/>
+				<Item Name="DialogTypeEnum.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/DialogTypeEnum.ctl"/>
+				<Item Name="General Error Handler CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler CORE.vi"/>
+				<Item Name="DialogType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/DialogType.ctl"/>
+				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
+				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
+				<Item Name="Set String Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set String Value.vi"/>
+				<Item Name="Set Bold Text.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set Bold Text.vi"/>
+				<Item Name="Details Display Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Details Display Dialog.vi"/>
+				<Item Name="ErrWarn.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/ErrWarn.ctl"/>
+				<Item Name="eventvkey.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/eventvkey.ctl"/>
+				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
+				<Item Name="Not Found Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Not Found Dialog.vi"/>
+				<Item Name="Three Button Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog.vi"/>
+				<Item Name="Three Button Dialog CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog CORE.vi"/>
+				<Item Name="Longest Line Length in Pixels.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Longest Line Length in Pixels.vi"/>
+				<Item Name="Convert property node font to graphics font.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Convert property node font to graphics font.vi"/>
+				<Item Name="Get Text Rect.vi" Type="VI" URL="/&lt;vilib&gt;/picture/picture.llb/Get Text Rect.vi"/>
+				<Item Name="Get String Text Bounds.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Get String Text Bounds.vi"/>
+				<Item Name="LVBoundsTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVBoundsTypeDef.ctl"/>
+				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>
+				<Item Name="GetHelpDir.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/GetHelpDir.vi"/>
 			</Item>
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="Parallax PING))).lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/Parallax PING)))/HAIOL/Parallax PING))).lvclass"/>
@@ -1210,6 +1246,10 @@ DirectoryIndex index.htm
 			<Item Name="GainsTDef.ctl" Type="VI" URL="../GainsTDef.ctl"/>
 			<Item Name="setpointCluster.ctl" Type="VI" URL="../Support VIs/setpointCluster.ctl"/>
 			<Item Name="StopTDef.ctl" Type="VI" URL="../StopTDef.ctl"/>
+			<Item Name="messageTypes.ctl" Type="VI" URL="../Support VIs/messageTypes.ctl"/>
+			<Item Name="speeds.ctl" Type="VI" URL="../Support VIs/speeds.ctl"/>
+			<Item Name="gainsGlobalBot.vi" Type="VI" URL="../Support VIs/gainsGlobalBot.vi"/>
+			<Item Name="setpointsGlobal.vi" Type="VI" URL="../Support VIs/setpointsGlobal.vi"/>
 			<Item Name="niLvFpgaFormatErrorSource.vi" Type="VI" URL="/&lt;vilib&gt;/rvi/errors/niLvFpgaFormatErrorSource.vi"/>
 			<Item Name="niLvFpgaWhatHappensToTopLevelVI.ctl" Type="VI" URL="/&lt;vilib&gt;/rvi/errors/niLvFpgaWhatHappensToTopLevelVI.ctl"/>
 			<Item Name="niFpgaNodeNameForErrorReporting.ctl" Type="VI" URL="/&lt;vilib&gt;/rvi/interface/common/niFpgaNodeNameForErrorReporting.ctl"/>
