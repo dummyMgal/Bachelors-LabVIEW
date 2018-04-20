@@ -6,4 +6,7 @@
 *.aliases
 *.html
 *.lvlps
+HostControl_Main_*.vi
+Robot_Main_*.vi
+HostControl_Main-*.vi
 
