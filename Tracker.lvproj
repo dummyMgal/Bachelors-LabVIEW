@@ -325,6 +325,10 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 				<Item Name="closeKeyboard.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeKeyboard.vi"/>
 				<Item Name="Close Input Device.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Close Input Device.vi"/>
 				<Item Name="NI_Vision_Development_Module.lvlib" Type="Library" URL="/&lt;vilib&gt;/vision/NI_Vision_Development_Module.lvlib"/>
+				<Item Name="NI_Robotics_Starter Kit Host_9632_2.0.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/robotics/Starter Kit/2.0/9632 Host Interface/NI_Robotics_Starter Kit Host_9632_2.0.lvclass"/>
+				<Item Name="NI_Robotics_Starter Kit Host_FPGA_2.0.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/robotics/Starter Kit/2.0/FPGA Host Interface/NI_Robotics_Starter Kit Host_FPGA_2.0.lvclass"/>
+				<Item Name="NI_Robotics_Starter Kit Host_FPGA.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/robotics/Starter Kit/FPGA Host Interface/NI_Robotics_Starter Kit Host_FPGA.lvclass"/>
+				<Item Name="NI_Robotics_Starter Kit Direct IO_FPGA.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/robotics/Starter Kit/FPGA Direct IO/NI_Robotics_Starter Kit Direct IO_FPGA.lvclass"/>
 			</Item>
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="Parallax PING))).lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/Parallax PING)))/HAIOL/Parallax PING))).lvclass"/>
@@ -333,6 +337,9 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 				<Item Name="DC Motor Controller.lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/DC Motor Controller/HAIOL/DC Motor Controller.lvclass"/>
 				<Item Name="Hitec HS400 Series Simulator.lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/Hitec HS400 Series/HAIOL/Simulator/Hitec HS400 Series Simulator.lvclass"/>
 				<Item Name="Hitec HS400 Series.lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/Hitec HS400 Series/HAIOL/Hitec HS400 Series.lvclass"/>
+				<Item Name="DC Motor Controller FPGA.lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/DC Motor Controller/HAIOL/FPGA/DC Motor Controller FPGA.lvclass"/>
+				<Item Name="Parallax PING))) FPGA.lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/Parallax PING)))/HAIOL/FPGA/Parallax PING))) FPGA.lvclass"/>
+				<Item Name="Hitec HS400 Series FPGA.lvclass" Type="LVClass" URL="/&lt;instrlib&gt;/Hitec HS400 Series/HAIOL/FPGA/Hitec HS400 Series FPGA.lvclass"/>
 			</Item>
 			<Item Name="LVODE.dll" Type="Document" URL="LVODE.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -360,6 +367,22 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 			</Item>
 			<Item Name="lvinput.dll" Type="Document" URL="/&lt;resource&gt;/lvinput.dll"/>
 			<Item Name="PS4ControlReal.vi" Type="VI" URL="../Support VIs/PS4ControlReal.vi"/>
+			<Item Name="niFpgaWaitOnOcc.vi" Type="VI" URL="/&lt;vilib&gt;/rvi/interface/common/niFpgaWaitOnOcc.vi"/>
+			<Item Name="niLvFpga_Close_Dynamic.vi" Type="VI" URL="/&lt;vilib&gt;/FPGAPlugInAG/Dynamic/niLvFpga_Close_Dynamic.vi"/>
+			<Item Name="niLvFpgaFormatErrorSource.vi" Type="VI" URL="/&lt;vilib&gt;/rvi/errors/niLvFpgaFormatErrorSource.vi"/>
+			<Item Name="niLvFpgaWhatHappensToTopLevelVI.ctl" Type="VI" URL="/&lt;vilib&gt;/rvi/errors/niLvFpgaWhatHappensToTopLevelVI.ctl"/>
+			<Item Name="niFpgaNodeNameForErrorReporting.ctl" Type="VI" URL="/&lt;vilib&gt;/rvi/interface/common/niFpgaNodeNameForErrorReporting.ctl"/>
+			<Item Name="niLvFpgaAdjustHostInterfaceError.vi" Type="VI" URL="/&lt;vilib&gt;/rvi/errors/niLvFpgaAdjustHostInterfaceError.vi"/>
+			<Item Name="niLvFpga_Download_Dynamic.vi" Type="VI" URL="/&lt;vilib&gt;/FPGAPlugInAG/Dynamic/niLvFpga_Download_Dynamic.vi"/>
+			<Item Name="niFpgaSimulationCallBeginRW.vi" Type="VI" URL="/&lt;vilib&gt;/rvi/interface/Simulation/niFpgaSimulationCallBeginRW.vi"/>
+			<Item Name="niLvFpga_Run_Dynamic.vi" Type="VI" URL="/&lt;vilib&gt;/FPGAPlugInAG/Dynamic/niLvFpga_Run_Dynamic.vi"/>
+			<Item Name="niLvFpgaErrorClusterFromErrorCode.vi" Type="VI" URL="/&lt;vilib&gt;/rvi/errors/niLvFpgaErrorClusterFromErrorCode.vi"/>
+			<Item Name="nirviErrorClusterFromErrorCode.vi" Type="VI" URL="/&lt;vilib&gt;/RVI Host/nirviSupport.llb/nirviErrorClusterFromErrorCode.vi"/>
+			<Item Name="nirviWhatTheDeviceIsDoing.ctl" Type="VI" URL="/&lt;vilib&gt;/rvi/ClientSDK/nirviWhatTheDeviceIsDoing.ctl"/>
+			<Item Name="nirio_resource_hc.ctl" Type="VI" URL="/&lt;vilib&gt;/userdefined/High Color/nirio_resource_hc.ctl"/>
+			<Item Name="niLvFpga_Open_sbRIO-9632.vi" Type="VI" URL="/&lt;vilib&gt;/FPGAPlugInAG/sbRIO-9632/niLvFpga_Open_sbRIO-9632.vi"/>
+			<Item Name="niFpgaHostInterfaceSession.ctl" Type="VI" URL="../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2013/Targets/NI/FPGA/StockFPGA_IntfPrivate/ScriptTemplates/niFpgaHostInterfaceSession.ctl"/>
+			<Item Name="niFpgaDynamicAddResources.vi" Type="VI" URL="/&lt;vilib&gt;/rvi/interface/common/dynamic/niFpgaDynamicAddResources.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
@@ -379,6 +402,7 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 		<Property Name="target.FPProtocolGlobals_ControlTimeLimit" Type="Int">300</Property>
 		<Property Name="target.getDefault-&gt;WebServer.Port" Type="Int">80</Property>
 		<Property Name="target.getDefault-&gt;WebServer.Timeout" Type="Int">60</Property>
+		<Property Name="target.IOScan.Enabled" Type="Bool">true</Property>
 		<Property Name="target.IOScan.Faults" Type="Str"></Property>
 		<Property Name="target.IOScan.NetVarPeriod" Type="UInt">100</Property>
 		<Property Name="target.IOScan.NetWatchdogEnabled" Type="Bool">false</Property>
