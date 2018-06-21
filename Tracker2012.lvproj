@@ -108,6 +108,8 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 			<Item Name="ComputeRectAverage.vi" Type="VI" URL="../Support VIs/ComputeRectAverage.vi"/>
 			<Item Name="getRect.vi" Type="VI" URL="../Support VIs/getRect.vi"/>
 			<Item Name="humanDetect.vi" Type="VI" URL="../Support VIs/humanDetect.vi"/>
+			<Item Name="Compute_RectAverage_Poly.vi" Type="VI" URL="../Support VIs/Compute_RectAverage_Poly.vi"/>
+			<Item Name="PS4ControlReal.vi" Type="VI" URL="../Support VIs/PS4ControlReal.vi"/>
 		</Item>
 		<Item Name="Control Type Defs" Type="Folder">
 			<Item Name="GainsTDef.ctl" Type="VI" URL="../GainsTDef.ctl"/>
@@ -120,26 +122,14 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 			<Item Name="setpointCluster.ctl" Type="VI" URL="../Support VIs/setpointCluster.ctl"/>
 			<Item Name="speeds.ctl" Type="VI" URL="../Support VIs/speeds.ctl"/>
 		</Item>
-		<Item Name="HostControl_Main_old.vi" Type="VI" URL="../HostControl_Main_old.vi"/>
+		<Item Name="HostMain.vi" Type="VI" URL="../HostMain.vi"/>
+		<Item Name="SpeedTest.vi" Type="VI" URL="../SpeedTest.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="KinectOne.lvlib" Type="Library" URL="/&lt;vilib&gt;/MakerHub/KinectOne/KinectOne.lvlib"/>
 				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 				<Item Name="BodyFrameDataInterface.dll" Type="Document" URL="/&lt;vilib&gt;/MakerHub/KinectOne/Private/Libs/BodyFrameDataInterface.dll"/>
-				<Item Name="LMH-PS4.lvlib" Type="Library" URL="/&lt;vilib&gt;/MakerHub/PS4-Controller/LMH-PS4.lvlib"/>
-				<Item Name="Acquire Input Data.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Acquire Input Data.vi"/>
-				<Item Name="joystickAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/joystickAcquire.vi"/>
-				<Item Name="keyboardAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/keyboardAcquire.vi"/>
-				<Item Name="mouseAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/mouseAcquire.vi"/>
-				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
-				<Item Name="Image Type" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Type"/>
-				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
-				<Item Name="IMAQ SetImageSize" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ SetImageSize"/>
-				<Item Name="Open.vi" Type="VI" URL="/&lt;vilib&gt;/MakerHub/PS4-Controller/Public/Open.vi"/>
-				<Item Name="Query Input Devices.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Query Input Devices.vi"/>
-				<Item Name="Initialize Joystick.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Initialize Joystick.vi"/>
-				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
 				<Item Name="Color to RGB.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/Color to RGB.vi"/>
 				<Item Name="NI_Vision_Development_Module.lvlib" Type="Library" URL="/&lt;vilib&gt;/vision/NI_Vision_Development_Module.lvlib"/>
 				<Item Name="IMAQ ArrayToColorImage" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ArrayToColorImage"/>
@@ -149,12 +139,28 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 				<Item Name="IMAQ Overlay Oval" Type="VI" URL="/&lt;vilib&gt;/vision/Overlay.llb/IMAQ Overlay Oval"/>
 				<Item Name="IMAQ ColorImageToArray" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ColorImageToArray"/>
 				<Item Name="RGB to Color.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/RGB to Color.vi"/>
-				<Item Name="closeJoystick.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeJoystick.vi"/>
-				<Item Name="closeMouse.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeMouse.vi"/>
-				<Item Name="closeKeyboard.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeKeyboard.vi"/>
-				<Item Name="Close Input Device.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Close Input Device.vi"/>
-				<Item Name="DpadEnum.ctl" Type="VI" URL="/&lt;vilib&gt;/MakerHub/PS4-Controller/Private/Type Defs/DpadEnum.ctl"/>
+				<Item Name="Open.vi" Type="VI" URL="/&lt;vilib&gt;/MakerHub/PS4-Controller/Public/Open.vi"/>
+				<Item Name="LMH-PS4.lvlib" Type="Library" URL="/&lt;vilib&gt;/MakerHub/PS4-Controller/LMH-PS4.lvlib"/>
+				<Item Name="Initialize Joystick.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Initialize Joystick.vi"/>
+				<Item Name="Acquire Input Data.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Acquire Input Data.vi"/>
+				<Item Name="joystickAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/joystickAcquire.vi"/>
+				<Item Name="keyboardAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/keyboardAcquire.vi"/>
+				<Item Name="mouseAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/mouseAcquire.vi"/>
+				<Item Name="Image Type" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Type"/>
+				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
+				<Item Name="IMAQ SetImageSize" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ SetImageSize"/>
+				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
+				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
 				<Item Name="IMAQ Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Dispose"/>
+				<Item Name="Close Input Device.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Close Input Device.vi"/>
+				<Item Name="closeJoystick.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeJoystick.vi"/>
+				<Item Name="closeKeyboard.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeKeyboard.vi"/>
+				<Item Name="closeMouse.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeMouse.vi"/>
+				<Item Name="DpadEnum.ctl" Type="VI" URL="/&lt;vilib&gt;/MakerHub/PS4-Controller/Private/Type Defs/DpadEnum.ctl"/>
+				<Item Name="Query Input Devices.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Query Input Devices.vi"/>
+				<Item Name="IMAQ ArrayToImage" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ArrayToImage"/>
+				<Item Name="IMAQ ImageToArray" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ImageToArray"/>
+				<Item Name="subElapsedTime.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/subElapsedTime.vi"/>
 			</Item>
 			<Item Name="Microsoft.Kinect" Type="Document" URL="Microsoft.Kinect">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -169,7 +175,12 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="initMessages.vi" Type="VI" URL="../Support VIs/initMessages.vi"/>
-			<Item Name="PS4ControlReal.vi" Type="VI" URL="../Support VIs/PS4ControlReal.vi"/>
+			<Item Name="ComputeRectAverage_Depth.vi" Type="VI" URL="../Support VIs/ComputeRectAverage_Depth.vi"/>
+			<Item Name="JKI pwd controller action.ctl" Type="VI" URL="../Support VIs/jki_please_wait_dialog_v102/code/support/controls/JKI pwd controller action.ctl"/>
+			<Item Name="JKI pwd controller.vi" Type="VI" URL="../Support VIs/jki_please_wait_dialog_v102/code/JKI pwd controller.vi"/>
+			<Item Name="JKI pwd queue manager.vi" Type="VI" URL="../Support VIs/jki_please_wait_dialog_v102/code/support/JKI pwd queue manager.vi"/>
+			<Item Name="JKI pwd queue manager mode enum.ctl" Type="VI" URL="../Support VIs/jki_please_wait_dialog_v102/code/support/controls/JKI pwd queue manager mode enum.ctl"/>
+			<Item Name="JKI pwd queue data cluster.ctl" Type="VI" URL="../Support VIs/jki_please_wait_dialog_v102/code/support/controls/JKI pwd queue data cluster.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
@@ -189,6 +200,7 @@ The Single-Board RIO target contains a VI that demonstrates how to use the Start
 		<Property Name="target.FPProtocolGlobals_ControlTimeLimit" Type="Int">300</Property>
 		<Property Name="target.getDefault-&gt;WebServer.Port" Type="Int">80</Property>
 		<Property Name="target.getDefault-&gt;WebServer.Timeout" Type="Int">60</Property>
+		<Property Name="target.IOScan.Enabled" Type="Bool">true</Property>
 		<Property Name="target.IOScan.Faults" Type="Str"></Property>
 		<Property Name="target.IOScan.NetVarPeriod" Type="UInt">100</Property>
 		<Property Name="target.IOScan.NetWatchdogEnabled" Type="Bool">false</Property>
@@ -890,6 +902,7 @@ Timeout 60
 				</Item>
 			</Item>
 		</Item>
+		<Item Name="Robot_SpeedTest.vi" Type="VI" URL="../Robot_SpeedTest.vi"/>
 		<Item Name="Robot_Main.vi" Type="VI" URL="../Robot_Main.vi">
 			<Item Name="PID - Modulus" Type="IIO Function Block">
 				<Item Name="error in" Type="Variable"/>
